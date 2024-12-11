@@ -14,6 +14,14 @@ interface CourseCardProps {
 }
 
 export function CourseCard({ course, onEdit, onDelete }: CourseCardProps) {
+  const handleDelete = () => {
+    if (typeof course.id === 'number') {
+      onDelete(course.id);
+    } else {
+      console.error('Course ID is missing');
+    }
+  };
+
   return (
     <Card>
       <CardHeader className="relative h-[200px]">
@@ -58,7 +66,7 @@ export function CourseCard({ course, onEdit, onDelete }: CourseCardProps) {
           variant="ghost"
           size="icon"
           className="text-destructive"
-          onClick={() => onDelete(course.id)}
+          onClick={handleDelete}
         >
           <Trash2 className="h-4 w-4" />
         </Button>

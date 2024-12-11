@@ -10,12 +10,11 @@ export interface CustomField {
 }
 
 export interface Course {
-  id?: number;
+  id: number;
   name: string;
-  imageCode: string;
-  imageUrl: string;
   category: string;
-  enrolled?: boolean;
+  imageUrl: string;
+  imageCode: string;
   chapters: Chapter[];
   customFields?: CustomField[];
 }

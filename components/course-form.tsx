@@ -19,6 +19,7 @@ interface CourseFormProps {
 
 export function CourseForm({ course, onSubmit, onOpenChange }: CourseFormProps) {
   const [formData, setFormData] = useState<Partial<Course>>(course || {
+    id: Date.now(),
     name: "",
     category: "",
     imageCode: "",
