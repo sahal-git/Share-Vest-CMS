@@ -1,6 +1,6 @@
-import { Course } from './types';
+import { CourseData } from './types';
 
-export const courses: Course[] = [
+export const courses: CourseData[] = [
     {
         id: 1,
         name: "Stock Market Basics",
@@ -17,7 +17,8 @@ export const courses: Course[] = [
             { id: 6, title: "Key Financial Metrics", videoUrl: "https://vimeo.com/271741409" },
             { id: 7, title: "How Stock Prices are Determined", videoUrl: "https://vimeo.com/271741409" },
             { id: 8, title: "Introduction to Stock Market", videoUrl: "https://vimeo.com/271741409" }
-        ]
+        ],
+        customFields: []
     },
     {
         id: 2,
@@ -25,6 +26,7 @@ export const courses: Course[] = [
         imageCode: "jqY2URdUDso",
         imageUrl: "https://i.ytimg.com/vi/jqY2URdUDso/maxresdefault.jpg",
         category: "Portfolio",
+        enrolled: false,
         chapters: [
             { id: 1, title: "Screening Halal Stocks", videoUrl: "https://vimeo.com/271741409" },
             { id: 2, title: "Ethical Considerations in Investing", videoUrl: "https://vimeo.com/271741409" },
@@ -34,7 +36,8 @@ export const courses: Course[] = [
             { id: 6, title: "Halal Mutual Funds and ETFs", videoUrl: "https://vimeo.com/271741409" },
             { id: 7, title: "Building a Halal Portfolio", videoUrl: "https://vimeo.com/271741409" },
             { id: 8, title: "Risk Management in Halal Investing", videoUrl: "https://vimeo.com/271741409" }
-        ]
+        ],
+        customFields: []
     },
     {
         id: 3,
@@ -52,7 +55,8 @@ export const courses: Course[] = [
             { id: 6, title: "Sector Rotation Strategies", videoUrl: "https://vimeo.com/271741409" },
             { id: 7, title: "Advanced Stock Valuation Techniques", videoUrl: "https://vimeo.com/271741409" },
             { id: 8, title: "Algorithmic Trading Introduction", videoUrl: "https://vimeo.com/271741409" }
-        ]
+        ],
+        customFields: []
     },
     {
         id: 4,
@@ -60,6 +64,7 @@ export const courses: Course[] = [
         imageCode: "FINSsC9P50Y",
         imageUrl: "https://i.ytimg.com/vi/FINSsC9P50Y/maxresdefault.jpg",
         category: "Trading",
+        enrolled: false,
         chapters: [
             { id: 1, title: "Trading Psychology", videoUrl: "https://vimeo.com/271741409" },
             { id: 2, title: "Common Trading Mistakes", videoUrl: "https://vimeo.com/271741409" },
@@ -69,7 +74,8 @@ export const courses: Course[] = [
             { id: 6, title: "Types of Trading Strategies", videoUrl: "https://vimeo.com/271741409" },
             { id: 7, title: "Understanding Candlestick Charts", videoUrl: "https://vimeo.com/271741409" },
             { id: 8, title: "Introduction to Trading", videoUrl: "https://vimeo.com/271741409" }
-        ]
+        ],
+        customFields: []
     },
     {
         id: 5,
@@ -77,6 +83,7 @@ export const courses: Course[] = [
         imageCode: "Y3kzzE9Elns",
         imageUrl: "https://i.ytimg.com/vi/Y3kzzE9Elns/maxresdefault.jpg",
         category: "Beginner",
+        enrolled: false,
         chapters: [
             { id: 1, title: "Stock Market Fundamentals", videoUrl: "https://vimeo.com/271741409" },
             { id: 2, title: "Preparing for Long-term Investing", videoUrl: "https://vimeo.com/271741409" },
@@ -86,7 +93,8 @@ export const courses: Course[] = [
             { id: 6, title: "Common Stock Investing Myths", videoUrl: "https://vimeo.com/271741409" },
             { id: 7, title: "Risks in Stock Market Investing", videoUrl: "https://vimeo.com/271741409" },
             { id: 8, title: "How to Open a Brokerage Account", videoUrl: "https://vimeo.com/271741409" }
-        ]
+        ],
+        customFields: []
     },
     {
         id: 6,
@@ -104,6 +112,7 @@ export const courses: Course[] = [
             { id: 6, title: "Key Screening Metrics", videoUrl: "https://vimeo.com/271741409" },
             { id: 7, title: "Introduction to Stock Screening", videoUrl: "https://vimeo.com/271741409" },
             { id: 8, title: "Developing Custom Screens", videoUrl: "https://vimeo.com/271741409" }
-        ]
+        ],
+        customFields: []
     }
 ];
