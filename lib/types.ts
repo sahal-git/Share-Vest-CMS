@@ -10,7 +10,7 @@ export interface CustomField {
 }
 
 export interface Course {
-  id: number;
+  id?: number;
   name: string;
   imageCode: string;
   imageUrl: string;
@@ -18,4 +18,8 @@ export interface Course {
   enrolled?: boolean;
   chapters: Chapter[];
   customFields?: CustomField[];
+}
+
+export interface FormData extends Omit<Course, 'id'> {
+  id?: number;
 }
