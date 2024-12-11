@@ -29,6 +29,13 @@ export default function Home() {
     }
   };
 
+  const handleOpenChange = (open: boolean) => {
+    setIsDialogOpen(open);
+    if (!open) {
+      setSelectedCourse(null);
+    }
+  };
+
   const filteredCourses = courses.filter(course => 
     course.name.toLowerCase().includes(search.toLowerCase()) ||
     course.category.toLowerCase().includes(search.toLowerCase())
@@ -64,6 +71,7 @@ export default function Home() {
         isOpen={isDialogOpen}
         selectedCourse={selectedCourse}
         onSubmit={handleSubmit}
+        onOpenChange={handleOpenChange}
       />
     </div>
   );

@@ -1,6 +1,5 @@
 import { GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 
 interface CourseHeaderProps {
   onAddClick: () => void;
@@ -13,11 +12,7 @@ export function CourseHeader({ onAddClick }: CourseHeaderProps) {
         <GraduationCap className="h-8 w-8" />
         <h1 className="text-3xl font-bold">Course Platform</h1>
       </div>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button onClick={onAddClick}>Add New Course</Button>
-        </DialogTrigger>
-      </Dialog>
+      <Button onClick={onAddClick}>Add New Course</Button>
     </div>
   );
 }

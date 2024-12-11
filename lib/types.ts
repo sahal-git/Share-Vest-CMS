@@ -4,6 +4,11 @@ export interface Chapter {
   videoUrl: string;
 }
 
+export interface CustomField {
+  key: string;
+  value: string;
+}
+
 export interface Course {
   id: number;
   name: string;
@@ -12,4 +17,5 @@ export interface Course {
   category: string;
   enrolled?: boolean;
   chapters: Chapter[];
+  customFields?: CustomField[];
 }
