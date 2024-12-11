@@ -19,20 +19,17 @@ export default function Home() {
   }, [fetchCourses]);
 
   const handleSubmit = async (course: Partial<Course>) => {
-    const success = selectedCourse
-      ? await updateCourse(course)
-      : await addCourse(course);
-    
-    if (success) {
-      setIsDialogOpen(false);
-      setSelectedCourse(null);
-    }
-  };
-
-  const handleOpenChange = (open: boolean) => {
-    setIsDialogOpen(open);
-    if (!open) {
-      setSelectedCourse(null);
+    try {
+      const success = selectedCourse
+        ? await updateCourse({ ...course, id: selectedCourse.id })
+        : await addCourse(course);
+      
+      if (success) {
+        setIsDialogOpen(false);
+        setSelectedCourse(null);
+      }
+    } catch (error) {
+      console.error('Failed to save course:', error);
     }
   };
 
@@ -71,7 +68,7 @@ export default function Home() {
         isOpen={isDialogOpen}
         selectedCourse={selectedCourse}
         onSubmit={handleSubmit}
-        onOpenChange={handleOpenChange}
+        onOpenChange={setIsDialogOpen}
       />
     </div>
   );

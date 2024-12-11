@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Edit2, Trash2 } from "lucide-react";
+import Image from "next/image";
 
 interface CourseCardProps {
   course: Course;
@@ -15,13 +16,18 @@ interface CourseCardProps {
 export function CourseCard({ course, onEdit, onDelete }: CourseCardProps) {
   return (
     <Card>
-      <CardHeader className="relative">
-        <img
-          src={course.imageUrl}
-          alt={course.name}
-          className="w-full h-48 object-cover rounded-t-lg"
-        />
-        <Badge className="absolute top-2 right-2">
+      <CardHeader className="relative h-[200px]">
+        <div className="relative w-full h-full">
+          <Image
+            src={course.imageUrl}
+            alt={course.name}
+            fill
+            className="object-cover rounded-t-lg"
+            priority={false}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+        <Badge className="absolute top-2 right-2 z-10">
           {course.category}
         </Badge>
       </CardHeader>
