@@ -1,5 +1,7 @@
-import { ApiTesterPage } from '../components/ApiTester';
+'use client';
+
+import { ApiTester } from '../components/ApiTester';
 
 export default function ApiTesterPage() {
-  return <ApiTesterPage />;
+  return <ApiTester />;
 } 

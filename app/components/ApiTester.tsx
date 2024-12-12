@@ -10,7 +10,7 @@ interface RequestConfig {
   body?: string;
 }
 
-export function ApiTesterPage() {
+export function ApiTester() {
   const [method, setMethod] = useState<RequestMethod>('GET');
   const [endpoint, setEndpoint] = useState('/api/courses');
   const [body, setBody] = useState('');
