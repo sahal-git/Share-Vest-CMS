@@ -9,8 +9,9 @@ export interface Course {
   name: string;
   imageCode: string;
   imageUrl: string;
-  category: string;
   published: boolean;
+  intro: boolean;
+  category: string;
   chapters: Chapter[];
 }
 
