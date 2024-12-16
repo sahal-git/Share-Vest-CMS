@@ -3,12 +3,14 @@ import { Stock } from "@/lib/types";
 export const stockService = {
   async fetchAll(): Promise<Stock[]> {
     const response = await fetch("/api/stocks");
-    return response.json();
+    const data = await response.json();
+    return data.data;
   },
 
   async fetchById(id: number): Promise<Stock> {
     const response = await fetch(`/api/stocks/${id}`);
-    return response.json();
+    const data = await response.json();
+    return data.data;
   },
 
   async create(stock: Partial<Stock>): Promise<Stock[]> {
@@ -17,7 +19,8 @@ export const stockService = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(stock),
     });
-    return response.json();
+    const data = await response.json();
+    return data.data;
   },
 
   async update(stock: Partial<Stock>): Promise<Stock[]> {
@@ -26,16 +29,16 @@ export const stockService = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(stock),
     });
-    return response.json();
+    const data = await response.json();
+    return data.data;
   },
 
-  async delete(id: number): Promise<Stock[]> {
-    const response = await fetch("/api/stocks", {
+  async delete(id: number): Promise<void> {
+    await fetch("/api/stocks", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
-    return response.json();
   },
 
   async duplicate(id: number): Promise<Stock[]> {
@@ -44,6 +47,7 @@ export const stockService = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
-    return response.json();
+    const data = await response.json();
+    return data.data;
   }
 }; 

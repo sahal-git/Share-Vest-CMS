@@ -20,11 +20,13 @@ export default function StocksPage() {
 
   const fetchStocks = async () => {
     try {
+      setIsLoading(true);
       const data = await stockService.fetchAll();
-      setStocks(data);
+      setStocks(data || []);
     } catch (error) {
       console.error("Failed to fetch stocks:", error);
       toast.error("Failed to fetch stocks");
+      setStocks([]);
     } finally {
       setIsLoading(false);
     }
@@ -79,11 +81,11 @@ export default function StocksPage() {
     setIsDialogOpen(true);
   };
 
-  const filteredStocks = stocks.filter(stock => 
+  const filteredStocks = stocks?.filter(stock => 
     stock.name.toLowerCase().includes(search.toLowerCase()) ||
     stock.full_name.toLowerCase().includes(search.toLowerCase()) ||
     stock.industry.toLowerCase().includes(search.toLowerCase())
-  );
+  ) || [];
 
   return (
     <div>
