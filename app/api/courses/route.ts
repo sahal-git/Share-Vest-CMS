@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { courses } from '@/lib/data';
+import { courses } from '@/lib/courseData';
 
 export async function GET() {
   return NextResponse.json({
@@ -13,8 +13,7 @@ export async function POST(request: Request) {
   const course = await request.json();
   courses.push({ 
     ...course, 
-    id: Math.max(...courses.map(c => c.id)) + 1,
-    published: false 
+    id: Math.max(...courses.map(c => c.id)) + 1
   });
   return NextResponse.json({
     success: true,
@@ -26,9 +25,16 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
   const course = await request.json();
   const index = courses.findIndex((c) => c.id === course.id);
-  if (index > -1) {
-    courses[index] = { ...courses[index], ...course };
+  
+  if (index === -1) {
+    return NextResponse.json(
+      { success: false, message: "Course not found" },
+      { status: 404 }
+    );
   }
+
+  courses[index] = { ...courses[index], ...course };
+  
   return NextResponse.json({
     success: true,
     message: "Course updated successfully",
@@ -39,12 +45,18 @@ export async function PUT(request: Request) {
 export async function DELETE(request: Request) {
   const { id } = await request.json();
   const index = courses.findIndex((c) => c.id === id);
-  if (index > -1) {
-    courses.splice(index, 1);
+  
+  if (index === -1) {
+    return NextResponse.json(
+      { success: false, message: "Course not found" },
+      { status: 404 }
+    );
   }
+
+  courses.splice(index, 1);
+  
   return NextResponse.json({
     success: true,
-    message: "Course deleted successfully",
-    data: courses
+    message: "Course deleted successfully"
   });
 }
