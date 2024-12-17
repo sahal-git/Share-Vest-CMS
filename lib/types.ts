@@ -8,9 +8,9 @@ export interface Course {
   id: number;
   name: string;
   imageCode: string;
-  published: boolean;
-  intro?: boolean;
   imageUrl: string;
+  published: boolean;
+  intro: boolean;
   category: string;
   chapters: Chapter[];
 }
@@ -51,6 +51,6 @@ export interface Stock {
   stock_link: string;
   price: string;
   status: string;
-  Share_Vest_Featured: boolean;
+  Share_Vest_Featured?: boolean;
   fundamentals: StockFundamentals;
 }
